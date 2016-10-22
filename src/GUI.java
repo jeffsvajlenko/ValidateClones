@@ -396,9 +396,6 @@ public class GUI {
 		int start2 = Integer.parseInt(parts[1]);
 		int end2 = Integer.parseInt(parts[2]);
 		
-		System.out.println(src1);
-		System.out.println(src2);
-		
 		
 		if(src1.equals(src2)) {
 			System.out.println("same file");
