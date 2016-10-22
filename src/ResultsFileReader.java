@@ -19,10 +19,17 @@ public class ResultsFileReader {
 		if(line == null) {
 			return null;
 		} else {
-			String parts[] = line.split("\t");
+			String parts[] = line.split(",");
 			int toolid = Integer.parseInt(parts[0]);
-			int cloneid = Integer.parseInt(parts[1]);
-			boolean validation = Boolean.parseBoolean(parts[2]);
+			int cloneid = Integer.parseInt(parts[1]);	
+			Boolean validation;
+			if(parts[2].equals("undecided")) {
+				validation = null;
+			} else if (parts[2].equals("true")) {
+				validation = true;
+			} else {
+				validation = false;
+			}
 			String fragment1 = parts[3];
 			String fragment2 = parts[4];
 			Clone clone = new Clone(toolid, cloneid, fragment1, fragment2, "", "");

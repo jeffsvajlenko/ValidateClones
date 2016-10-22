@@ -12,7 +12,7 @@ public class ResultsFileWriter {
 	}
 	
 	public void write(Clone clone) throws IOException {
-		bw.write(clone.resultString(clone.getValidation()));
+		bw.write(clone.resultString() + "\n");
 	}
 	
 	public void close() throws IOException {

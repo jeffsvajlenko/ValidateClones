@@ -1,23 +1,38 @@
 
 public class Clone {
+	// USed for GUI only
+	private int index;
+	
+	// Status
+	private Boolean validation = null;
+	
+	// Used for equals/hash
 	private int toolid;
 	private int cloneid;
 	private String fragment1;
 	private String fragment2;
 	private String text1;
 	private String text2;
-	private Boolean validation = null;
+
+	public int getIndex() {
+		return this.index;
+	}
 	
-	public boolean getValidation() {
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	
+	public Boolean getValidation() {
 		return validation;
 	}
 	
-	public void setValidation(boolean validation) {
+	public void setValidation(Boolean validation) {
 		this.validation = validation;
 	}
 	
 	public Clone(int toolid, int cloneid, String fragment1, String fragment2, String text1, String text2) {
 		super();
+		this.index = -1;
 		this.toolid = toolid;
 		this.cloneid = cloneid;
 		this.fragment1 = fragment1;
@@ -89,12 +104,18 @@ public class Clone {
 		return true;
 	}
 
-	public String resultString(boolean tp) {
-		if(tp) {
+	public String resultString() {
+		if(validation == null) {
+			return toolid + "," + cloneid + "," + "undecided" + "," + fragment1 + "," + fragment2;
+		} else if (validation == true) {
 			return toolid + "," + cloneid + "," + "true" + "," + fragment1 + "," + fragment2;
 		} else {
 			return toolid + "," + cloneid + "," + "false" + "," + fragment1 + "," + fragment2;
 		}
+	}
+	
+	public String toString() {
+		return Integer.toString(index);
 	}
 	
 }
